@@ -1,12 +1,17 @@
 const express = require('express');
 
-const controllers = require('../controllers/users.controllers');
+const userControllers = require('../controllers/users.controllers');
+const pointsController = require('../controllers/points.controllers');
 
 const router = express.Router();
 
-router.post('/register', controllers.userCreate);
+router.post('/register', userControllers.userCreate);
 
-router.post('/login', controllers.userLogin);
+router.post('/login', userControllers.userLogin);
+
+router.post('/points', pointsController.featurePoints);
+
+router.get('/points/:email', pointsController.getPoints);
 
 /* router.post('/products', productCreate);
 

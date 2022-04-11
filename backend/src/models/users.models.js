@@ -29,8 +29,7 @@ const userLogin = async (user) => {
   const { email, password } = user;
 
   const userAnswer = await conn.collection('users').findOne({ email });
-  console.log('usuário', userAnswer);
-    
+      
   if (!userAnswer) throw errorConstructor(notFound, 'Usuário não encontrado');
   
   const verifyPassword = hash(password);

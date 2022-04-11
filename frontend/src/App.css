@@ -1,38 +1,139 @@
-.App {
-  text-align: center;
+body {
+  background-color: #251d58;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main {
+  height: 520px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 430px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main-menu {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 520px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -95%);
+  width: 430px;
 }
 
-.App-link {
-  color: #61dafb;
+.menu-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.button-container {
+  margin-top: 40px;
+}
+
+.button-menu-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 150px;
+}
+
+.title {
+  color: #eaf0fb;
+  display: block;
+  font-family: 'Goudy Bookletter 1911' , sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 40px;
+  padding: 10px;
+  text-align-last: center;
+}
+
+.title-menu {
+  color: #eaf0fb;
+  display: block;
+  font-family: 'Goudy Bookletter 1911' , sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  text-align-last: center;
+}
+
+.error {
+  color: #943232;
+  display: block;
+  font-family: 'Goudy Bookletter 1911' , sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 40px;
+  padding: 10px;
+  text-align-last: center;
+}
+
+input {
+  background-color: rgba(255, 255, 255, 0.07);
+  border-radius: 15px;
+  color: #eaf0fb;
+  display: block;
+  font-size: 17px;
+  height: 50px;
+  margin-top: 8px;
+  padding: 0 10px;
+  text-align-last: center;
+  width: 95%;
+}
+
+::placeholder {
+  color: #858585;
+  font-size: 15px;
+  font-style: italic;
+}
+
+button:disabled {
+  background-color: #ccc;
+  border: 1px solid #999;
+  color: #666;
+}
+
+@import url("~leaflet/dist/leaflet.css");
+
+.leaflet-container {
+  width: 100%;
+  height: 100vh;
+}
+
+.back-menu-button {
+  background-color: white;
+  border-radius: 6px;
+  color: #080710;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  width: 100px;
+  height: 50px;
+}
+
+.common-button {
+  background-color: white;
+  border-radius: 6px;
+  color: #080710;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  width: 300px;
+  height: 50px;
+  margin-bottom: 10px;  
+}
+
+.logout-button {
+  background-color: white;
+  border-radius: 6px;
+  color: #080710;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  width: 70px;
+  height: 35px;  
 }

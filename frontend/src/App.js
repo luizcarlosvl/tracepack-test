@@ -11,7 +11,9 @@ function App() {
       <Switch>
         <Route exact component={ Pages.Login } path="/" />
         <Route exact component={ Pages.Register } path="/register" />
+        <Route exact component={ Pages.Map } path="/map" />
         <Route exact component={ Pages.Menu } path="/menu" />
+        <Route exact component={ Pages.FeaturePoints } path="/feature-points" />
         
 
       </Switch>

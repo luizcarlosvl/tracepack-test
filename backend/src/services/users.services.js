@@ -19,8 +19,6 @@ const userCreate = async (newUser) => {
 
   const code = 'invalid_data';
 
-  console.log(error);
-
   if (error) throw errorConstructor(badRequest, error.message, code);
 
   const user = await models.userCreate(newUser);
