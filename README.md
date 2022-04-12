@@ -11,8 +11,8 @@ Backend: node.js, express, mongo.db
 
 - fazer o clone do repositório (git clone)
 - instalar as dependências dentro de cada diretório frontend e backend (npm install)
-- iniciar o serviço Mongo.db (sudo service mongod start)
 - iniciar o servidor dentro de cada diretório frontend e backend (npm start)
+- iniciar o serviço Mongo.db (sudo service mongod start)
 
 ### Funcionalidades
 
