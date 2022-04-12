@@ -4,7 +4,7 @@ desafio técnico
 
 ## Tecnologias Utilizadas
 
-Frontend: react.js, react leaflet, axios
+Frontend: react.js, react leaflet, axios\
 Backend: node.js, express, mongo.db 
 
 ## Como rodar esse projeto
