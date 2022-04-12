@@ -25,7 +25,6 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.4",
-    "eslint-config-trybe-backend": "^1.0.3",
-    "mongodb-memory-server": "^6.9.6"
+    "eslint-config-trybe-backend": "^1.0.3"
   }
 }

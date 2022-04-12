@@ -47,8 +47,7 @@ function Register() {
       password,
     };
     try {
-      const res = await http.post('/register', body);
-      console.log(res);
+      await http.post('/register', body);
       history.push('/');
     } catch (error) {
       setErrorMessage(error.message);
@@ -57,60 +56,53 @@ function Register() {
   };
 
   return (
-    <main>
-      <h1>
-        Cadastro
+    <main className="main-register">
+      <h1 className='title'>
+        CADASTRO
       </h1>
       <form className="">
-        <label htmlFor="name">
-          Nome
-          <input
-            name="name"
-            type="text"
-            value={ name }
-            onChange={ (input) => setName(input.target.value) }
-            data-testid="common_register__input-name"
-            placeholder="Seu nome"
-          />
-        </label>
-        <label htmlFor="email">
-          Email
-          <input
-            name="email"
-            type="email"
-            value={ email }
-            onChange={ (input) => setEmail(input.target.value) }
-            data-testid="common_register__input-email"
-            placeholder="email@email.com"
-          />
-        </label>
-        <label htmlFor="password">
-          Senha
-          <input
-            name="password"
-            type="password"
-            value={ password }
-            onChange={ (input) => setPassword(input.target.value) }
-            data-testid="common_register__input-password"
-            placeholder="************"
-          />
-        </label>
-        <button
-          disabled={ !(validatePassword() && validateEmail() && validateName()) }
-          type="button"
-          onClick={ () => handleClick() }
-          data-testid="common_register__button-register"
-        >
-          CADASTRAR
-        </button>
-        <Link to="/">
+        <input
+          name="name"
+          type="text"
+          value={ name }
+          onChange={ (input) => setName(input.target.value) }
+          data-testid="common_register__input-name"
+          placeholder="Seu nome"
+        />
+        <input
+          name="email"
+          type="email"
+          value={ email }
+          onChange={ (input) => setEmail(input.target.value) }
+          data-testid="common_register__input-email"
+          placeholder="email@email.com"
+        />
+        <input
+          name="password"
+          type="password"
+          value={ password }
+          onChange={ (input) => setPassword(input.target.value) }
+          data-testid="common_register__input-password"
+          placeholder="************"
+        />
+        <div className='register-button-container'>
           <button
-            data-testid="common_login__button-register"
+            disabled={ !(validatePassword() && validateEmail() && validateName()) }
             type="button"
+            onClick={ () => handleClick() }
+            className="common-button"
           >
-            Voltar
+            CADASTRAR
           </button>
-        </Link>
+          <Link to="/">
+            <button
+              className="common-button"
+              type="button"
+            >
+              Voltar
+            </button>
+          </Link>
+        </div>
       </form>
       <span
         data-testid="common_register__element-invalid_register"

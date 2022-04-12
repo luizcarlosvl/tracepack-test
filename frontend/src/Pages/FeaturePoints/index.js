@@ -18,12 +18,11 @@ function FeaturePoints() {
 
   async function createPoint() {
     try {
-      const response = await http.post('/points',
+      await http.post('/points',
         {
           email,
           point: {name, lat:latitude, lon:longitude}
         });
-      console.log(response);  
     } catch (error) {
       setErrorMessage(error.message);
     }
@@ -48,35 +47,35 @@ function FeaturePoints() {
   };
 
   return (
-    <main className="main">
-      <span className="title">Feature Points</span>
+    <form className="main-points">
+      <span className="title">Cadastro de Posições</span>
       <input
-          data-testid="menu-input-name"
+          className="points-input"
           placeholder="digite o nome da localização"
           onChange={ (event) => setName(event.target.value) }
         />
       <input
-          data-testid="menu-input-latitude"
+          className="points-input"
           placeholder="digite a latitude"
           onChange={ (event) => setLatitude(event.target.value) }
         />
       <input
-        data-testid="common_login__input-longitude"
+        className="points-input"
         placeholder="digite a longitude"
         onChange={ (event) => setLongitude(event.target.value) }
       />  
-      <div className="button-container">
+      <div className="polygon-button-container">
         <button
           disabled={ !(validateLatitude && validateLongitude() && validateName()) }
           onClick={ createPoint }
-          data-testid="common_login__button-login"
-          type="button"
+          className="common-button"
+          type="reset"
         >
           Create
         </button>
         <Link to="/menu">
           <button
-            data-testid="common_login__button-register"
+            className="common-button"
             type="button"
           >
             Menu
@@ -89,7 +88,7 @@ function FeaturePoints() {
       >
         { errorMessage }
       </span>
-    </main>
+    </form>
   );
 }
 

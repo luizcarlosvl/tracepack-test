@@ -16,19 +16,14 @@ const userSchema = Joi.object({
 
 const userCreate = async (newUser) => {
   const { error } = userSchema.validate(newUser);
-
   const code = 'invalid_data';
-
   if (error) throw errorConstructor(badRequest, error.message, code);
-
   const user = await models.userCreate(newUser);
-  
   return user;
 };
 
 const userLogin = async (user) => {
   const userAnswer = await models.userLogin(user);
-  
   return userAnswer;
 };
 

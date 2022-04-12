@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-
 function Menu() {
   
   function logout() {
@@ -40,6 +39,14 @@ function Menu() {
             type="button"
           >
             Cadastro de Posições
+          </button>
+        </Link>
+        <Link to="/feature-polygons">
+          <button
+            className="common-button"
+            type="button"
+          >
+            Cadastro de Polígonos
           </button>
         </Link>
       </div>

@@ -5,7 +5,6 @@ const featurePoints = async (req, res, next) => {
   try {
     const { email, point } = req.body;
     const newPoint = await services.featurePoints(email, point);
-    console.log('usuario:', email);
     return res.status(created).json(newPoint);
   } catch (error) {
     console.log(`POST CREATESALE -> ${error.message}`);

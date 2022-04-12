@@ -3,9 +3,14 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 function FeaturePolygons() {
-  const [longitude, setLongitude] = useState('');
-  const [latitude, setLatitude] = useState('');
+  const [latA, setlatA] = useState('');
+  const [lonA, setLonA] = useState('');
+  const [latB, setlatB] = useState('');
+  const [lonB, setLonB] = useState('');
+  const [latC, setlatC] = useState('');
+  const [lonC, setLonC] = useState('');
   const [name, setName] = useState('');
+  const [color, setColor] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
   const http = axios.create({
@@ -18,65 +23,83 @@ function FeaturePolygons() {
 
   async function createPoint() {
     try {
-      const response = await http.post('/points',
+      await http.post('/polygons',
         {
           email,
-          point: {name, lat:latitude, lon:longitude}
+          polygon: {name, color: { color }, latA, lonA, latB, lonB, latC, lonC }
         });
-      console.log(response);  
     } catch (error) {
       setErrorMessage(error.message);
     }
   }
 
-  const validateLatitude = () => {
+  const validate = () => {
     const min = 3;
-    if (latitude.length >= min) return true;
-    return false;
-  };
-
-  const validateLongitude = () => {
-    const min = 3;
-    if (latitude.length >= min) return true;
-    return false;
-  };
-
-  const validateName = () => {
-    const min = 3;
-    if (latitude.length >= min) return true;
+    if (latA.length >= min
+        && lonA.length >= min
+        && latB.length >= min
+        && lonB.length >= min
+        && latC.length >= min
+        && lonC.length >= min  
+    ) return true;
     return false;
   };
 
   return (
-    <main className="main">
-      <span className="title">Feature Points</span>
-      <input
-          data-testid="menu-input-name"
+    <form className="main-polygons">
+      <span className="title">Cadastro de Polígonos</span>
+        <input
+          className="polygon-input"
           placeholder="digite o nome da localização"
           onChange={ (event) => setName(event.target.value) }
-        />
-      <input
-          data-testid="menu-input-latitude"
+          />
+        <input
+          className="polygon-input"
+          placeholder="digite uma cor (em inglês)"
+          onChange={ (event) => setColor(event.target.value) }
+          />  
+      <div className='sub-container-polygons'>
+        <input
           placeholder="digite a latitude"
-          onChange={ (event) => setLatitude(event.target.value) }
+          onChange={ (event) => setlatA(event.target.value) }
+          />
+        <input
+          placeholder="digite a longitude"
+          onChange={ (event) => setLonA(event.target.value) }
         />
-      <input
-        data-testid="common_login__input-longitude"
-        placeholder="digite a longitude"
-        onChange={ (event) => setLongitude(event.target.value) }
-      />  
-      <div className="button-container">
+      </div>
+      <div className='sub-container-polygons'>
+        <input
+          placeholder="digite a latitude"
+          onChange={ (event) => setlatB(event.target.value) }
+          />
+        <input
+          placeholder="digite a longitude"
+          onChange={ (event) => setLonB(event.target.value) }
+        />
+      </div>
+      <div className='sub-container-polygons'>
+        <input
+          placeholder="digite a latitude"
+          onChange={ (event) => setlatC(event.target.value) }
+          />
+        <input
+          placeholder="digite a longitude"
+          onChange={ (event) => setLonC(event.target.value) }
+        />
+      </div>  
+      <div className="polygon-button-container">
         <button
-          disabled={ !(validateLatitude && validateLongitude() && validateName()) }
+          disabled={ !(validate()) }
           onClick={ createPoint }
-          data-testid="common_login__button-login"
-          type="button"
+          className="common-button"
+          type="reset"
         >
           Create
         </button>
         <Link to="/menu">
           <button
-            data-testid="common_login__button-register"
+            className='common-button'
             type="button"
           >
             Menu
@@ -89,7 +112,7 @@ function FeaturePolygons() {
       >
         { errorMessage }
       </span>
-    </main>
+    </form>
   );
 }
 

@@ -47,7 +47,7 @@ function LoginPage() {
   };
 
   return (
-    <main className="main">
+    <main className="main-login">
       <span className="title">TRACEPACK</span>
       <input
         data-testid="common_login__input-email"
@@ -60,18 +60,18 @@ function LoginPage() {
         onChange={ (event) => setPassword(event.target.value) }
         type="password"
       />
-      <div className="button-container">
+      <div className="button-login-container">
         <button
           disabled={ !(validateEmail() && validatePassword()) }
           onClick={ login }
-          data-testid="common_login__button-login"
+          className="common-button"
           type="button"
         >
           LOGIN
         </button>
         <Link to="/register">
           <button
-            data-testid="common_login__button-register"
+            className="common-button"
             type="button"
           >
             Ainda não tenho conta

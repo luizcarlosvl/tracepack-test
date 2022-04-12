@@ -23,6 +23,63 @@ body {
   width: 430px;
 }
 
+.main-points {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 520px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -95%);
+  width: 430px;
+  margin-top: 50px;
+}
+
+.main-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 520px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -95%);
+  width: 430px;
+  margin-top: 190px;
+}
+
+.main-register {
+  
+  height: 520px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -95%);
+  width: 430px;
+  margin-top: 160px;
+}
+
+.main-polygons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 820px;
+  left: 50%;
+  position: absolute;
+  top: 80%;
+  transform: translate(-50%, -95%);
+  width: 430px;
+  margin-top: 30px;
+}
+
+.sub-container-polygons {
+  display: flex;
+  align-items: center;
+  width: 430px;
+  margin-top: 0px;
+}
+
 .menu-header {
   display: flex;
   flex-direction: column;
@@ -37,7 +94,36 @@ body {
 .button-menu-container {
   display: flex;
   flex-direction: column;
-  margin-top: 150px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 180px;
+  border-style: solid;
+  border-color: #eaf0fb;
+  border-radius: 10px;
+  border-width: 1px;
+  width: 350px;
+  height: 350px;
+}
+
+.register-button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  margin-left: 10px;
+  
+}
+
+.button-login-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.polygon-button-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
 }
 
 .title {
@@ -85,6 +171,20 @@ input {
   width: 95%;
 }
 
+.polygon-input {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.07);
+  border-radius: 15px;
+  color: #eaf0fb;
+  font-size: 17px;
+  height: 50px;
+  margin-top: 8px;
+  padding: 0 10px;
+  text-align-last: center;
+  width: 95%;
+}
+
 ::placeholder {
   color: #858585;
   font-size: 15px;
@@ -124,7 +224,8 @@ button:disabled {
   font-weight: 600;
   width: 300px;
   height: 50px;
-  margin-bottom: 10px;  
+  margin-bottom: 4px;
+  margin-top: 4px;  
 }
 
 .logout-button {

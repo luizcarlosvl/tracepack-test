@@ -1,4 +1,4 @@
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
+import { MapContainer, Marker, Popup, TileLayer, Polygon } from 'react-leaflet'
 import Control from 'react-leaflet-custom-control'
 import L from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
@@ -6,8 +6,6 @@ import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import { useHistory } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
-import '../../App.css';
 
 const DefaultIcon = L.icon({
   iconUrl: icon,
@@ -20,6 +18,7 @@ let position = [51.505, -0.09]
 
 function Map() {
   const [points, setPoints] = useState([]);
+  const [polygons, setPolygons] = useState([]);
     
   const history = useHistory();
 
@@ -36,15 +35,13 @@ function Map() {
     const { user } = JSON.parse(localStorage.getItem('user'));
     const { email } = user
 
-    async function getPoints() {
-      try {
-        const response = await http.get(`/points/${ email }`);
-        setPoints(response.data.points)  
-      } catch (error) {
-        
-      }
+    async function getData() {
+      const pointsResponse = await http.get(`/points/${ email }`);
+      if (pointsResponse.data) setPoints(pointsResponse.data.points)
+      const polygonsResponse = await http.get(`/polygons/${ email }`);
+      if (polygonsResponse.data) setPolygons(polygonsResponse.data.polygons)  
     }
-    getPoints()
+    getData();
   },
   []);
 
@@ -73,12 +70,19 @@ function Map() {
           </Marker>      
         )  
       })}
-      {/* <Marker position={[pointA, pointB]}>
-        <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
-        </Popup>
-      </Marker> */}
-      
+      { console.log("poligonos: ", polygons)}
+      { polygons.map((polygon, index) => {
+        return (
+          <Polygon
+            key={ index }
+            pathOptions={ polygon.color }
+            positions={[[polygon.latA, polygon.lonA], [polygon.latB, polygon.lonB], [polygon.latC, polygon.lonC]]}>
+            <Popup>
+            { polygon.name }
+            </Popup>
+          </Polygon>
+        )
+      })}
     </MapContainer>
   )
 }
