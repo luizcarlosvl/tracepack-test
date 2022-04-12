@@ -1,13 +1,17 @@
-# tracepack-test
+# Tracepack-test
 
 desafio técnico
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Tecnologias Utilizadas
 
-## Available Scripts
+Frontend: react.js, react leaflet, axios
+Backend: node.js, express, mongo.db 
 
-In the project directory, you can run:
+## Como rodar esse projeto
+
+- fazer o clone do repositório (git clone)
+- instalar as dependências dentro de cada diretório frontend e backend (npm install)
+- iniciar o servidor dentro de cada diretório frontend e backend (npm start)
 
 ### `npm start`
 
